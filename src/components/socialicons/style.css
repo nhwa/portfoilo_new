@@ -54,6 +54,7 @@
 
 @media only screen and (max-width: 991px) {
     .stick_follow_icon {
+        /* font-size: 4.2vw; */
         width: unset;
         height: unset;
         position: static;
