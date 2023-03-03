@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { WiMoonAltWaningCrescent3 } from "react-icons/wi";
+// import { WiMoonAltWaningCrescent3 } from "react-icons/wi";
+import { ImSwitch } from "react-icons/im";
 
 
 const Themetoggle = () => {
@@ -12,8 +13,8 @@ const Themetoggle = () => {
     localStorage.setItem('theme', theme ); 
   }, [theme]);
   return (
-    <div className="nav_ac" onClick={themetoggle}>
-      <WiMoonAltWaningCrescent3 />
+    <div onClick={themetoggle}>
+      <ImSwitch />
     </div>
   );
 };
