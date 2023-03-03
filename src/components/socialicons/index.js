@@ -5,7 +5,7 @@ import { socialprofils } from "../../content_option";
 
 export const Socialicons = (params) => {
   return (
-    <div className="stick_follow_icon">
+    <div className="social_icon">
       <ul>
         {socialprofils.github && (
           <li>
@@ -15,7 +15,7 @@ export const Socialicons = (params) => {
         )}
         {socialprofils.notion && (
           <li>
-            <a href={socialprofils.linkedin}>
+            <a href={socialprofils.notion}>
               <Icon icon="simple-icons:notion" />
             </a>
           </li>
@@ -26,8 +26,7 @@ export const Socialicons = (params) => {
             <Icon icon="uil:youtube" />
             </a>
           </li>
-        )}
-        
+        )} 
       </ul>
       <p>Watching Me</p>
     </div>

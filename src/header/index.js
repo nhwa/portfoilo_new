@@ -17,18 +17,19 @@ const Headermain = () => {
   return (
     <>
       <header className="fixed-top site__header">
-        <div className="d-flex align-items-center justify-content-between">
-          <Link  className="navbar-brand nav_ac" to="/">
-            {logotext}
+        <div className="d-flex justify-content-between">
+          <Link className="d-flex align-items-center navbar-brand nav_ac" to="/">
+            <div>{logotext}</div>
           </Link>
-          <div className="d-flex align-items-center">
-          <Themetoggle />
-          <button className="menu__button  nav_ac" onClick={handleToggle}>
-            {!isActive ? <VscClose /> : <Icon icon="system-uicons:menu-hamburger" />}
-          </button>
+          <div className="d-flex navbar-right">
+            <div className=" d-flex nav_ac align-items-center navbar-right"><Themetoggle /></div>
+            <button className="menu__button nav_ac" onClick={handleToggle}>
+              {!isActive ? <VscClose /> : <Icon icon="system-uicons:menu-hamburger" />}
+            </button>
           </div>
         </div>
 
+        {/* 햄버거 메뉴 */}
         <div className={`site__navigation ${!isActive ? "menu__opend" : ""}`}>
           <div className="bg__menu h-100">
             <div className="menu__wrapper">

@@ -1,71 +1,91 @@
-.stick_follow_icon {
+.social_icon {
+    z-index: 10;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    background: var(--primary-color);
     top: 50%;
     left: 30px;
-    width: 20px;
-    height: 200px;
+    width: 50px;
+    height: 300px;
     position: fixed;
-    margin-top: -100px;
+    margin-top: -150px;
+    outline: 2.5px dashed var(--secondary-color);
 }
 
-.stick_follow_icon ul {
+.social_icon ul {
     list-style: none;
     padding: 0;
     margin: 0;
 }
 
-.stick_follow_icon svg {
+.social_icon svg {
     width: 1.3em;
     height: 1.3em;
-    fill: var(--text-color)
+    fill: var(--text-color);
+    transition: all .5s;
 }
 
-.stick_follow_icon p {
-    top: 70px;
-    left: -24px;
-    width: 68px;
+.social_icon p {
+    display: block;
+    width: auto;
     height: 20px;
     color: var(--text-color);
     font-size: 12px;
     font-weight: 600;
-    line-height: 1.2;
     white-space: nowrap;
+    transition: all .5s;
     position: relative;
     transform: rotate( -90deg);
 }
 
-.stick_follow_icon ul li {
+.social_icon ul li {
     display: block;
     font-size: 15px;
     text-align: center;
     margin-bottom: 10px;
-    transition: all .3s;
+    transition: all .5s;
+}
+.social_icon ul li:hover{
+    color: var(--primary-color);
 }
 
-.stick_follow_icon p:after {
-    top: 9px;
-    right: -48px;
-    width: 40px;
+
+.social_icon p:after {
+    right: -66px;
+    width: 25px;
     height: 1px;
+    bottom: 11px;
+    /* bottom: 10px; */
     content: "";
     display: block;
     position: absolute;
+    transition: all 1s;
     background-color: var(--text-color);
 }
 
 @media only screen and (max-width: 991px) {
-    .stick_follow_icon {
-        /* font-size: 4.2vw; */
-        width: unset;
-        height: unset;
-        position: static;
-        margin-top: unset;
+    .social_icon {
+        outline: none;
+        width: 100%;
+        height: auto;
+        margin-top: 0;
+        bottom: 10px;
+        left: 0;
         display: flex;
+        top: unset;
+        text-align: center;
         flex-direction: row-reverse;
         justify-content: center;
-        padding: 40px 0;
+        padding: 0 0;
         align-items: center;
     }
-    .stick_follow_icon p {
+
+.social_icon svg {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+    .social_icon p {
         top: unset;
         left: unset;
         width: unset;
@@ -73,15 +93,20 @@
         white-space: nowrap;
         position: relative;
         transform: unset;
-        font-size: 17px;
-        margin-right: 65px;
+        font-size: 1rem;
+        margin: 10px 65px 10px 0;
+        z-index: 1000;
     }
-    .stick_follow_icon ul {
-        margin-bottom: 20px;
+    .social_icon p::after{
+        right: -45px;
     }
-    .stick_follow_icon ul li {
-        display: inline;
-        margin-bottom: 29px;
-        margin-right: 10px;
+    .social_icon ul {
+        margin: 10px 0;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+    .social_icon ul li {
+        margin: 0 10px 0 0;
     }
 }
