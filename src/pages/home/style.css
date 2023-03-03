@@ -8,15 +8,16 @@ body {
     height: 100vh;
     margin: 0;
     overflow: hidden;
-    background: linear-gradient(135deg, #c1d7ff, #f9d0d3);
+    /* background: #000; */
+    /* background: linear-gradient(135deg, #c1d7ff, #f9d0d3);  */
     /* background: linear-gradient(135deg, #CCDCDA, #dce0e0); */
 }
 
-.scene {
+/* .scene {
     position: absolute; 
     width: 100%;
     height: 100vh;
-}
+} */
 
 section {
     flex: 1 0 auto;
@@ -28,7 +29,7 @@ section {
 }
 
 .who_am_I {
-    font-family: Cinzel;
+    font-family: 'Poppins', sans-serif;
 }
 
 .has-first-color {
@@ -252,4 +253,59 @@ section {
 
 .intro_sec .h_bg-image {
     filter: saturate(0.5);
+}
+
+.scene {
+  position: absolute;
+  top:0;
+  left:0;
+  width: 100vw;
+  height: 100vh;
+  /* background: var(--primary-color); */
+  background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/142996/hover-reveal.jpg")
+  50% 50% no-repeat fixed;
+  background-size: cover;
+  overflow: hidden;
+  padding: 20rem;
+}
+.scene_wrapper{
+    position: absolute;
+    top:0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: var(--primary-color);
+     overflow: hidden;
+}
+h1 {
+  position: relative;
+  font-size: 8rem;
+  text-transform: uppercase;
+  font-family: test;
+  color: #fff;
+  z-index: 10;
+}
+.magic {
+  z-index: 5;
+  position: absolute; 
+  top: calc(50% - 7.5rem);
+  left: calc(50% - 7.5rem);
+  width: 15rem;
+  height: 15rem;
+  /* clip-path: polygon(40% 47%, 60% 47%, 60% 65%, 56% 65%, 58% 79%, 51% 65%, 40% 65%); */
+  background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/142996/hover-reveal.jpg")
+    50% 50% no-repeat fixed;
+  background-size: cover;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.check-out {
+  z-index: 100;
+  position: absolute;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 2rem;
+  color: #fff;
+  font-family: test;
 }
