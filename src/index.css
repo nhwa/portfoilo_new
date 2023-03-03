@@ -28,9 +28,7 @@ body {
     overflow-y: visible;
     background-color: var(--bg-color);
     color: var(--text-color);
-    font-family: 'Raleway', sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+    font-family: 'Poppins', sans-serif;
     padding-top: 60px;
     border-left: 10px solid var(--primary-color);
     border-right: 10px solid var(--primary-color);
@@ -46,7 +44,7 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: Marcellus;
+    font-family: 'Poppins', sans-serif;
 }
 
 a,
@@ -69,7 +67,7 @@ p {
 }
 
 code {
-    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+    font-family: 'Poppins', sans-serif;
 }
 
 .cursor__dot div {
