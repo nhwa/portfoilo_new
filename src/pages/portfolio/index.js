@@ -1,11 +1,22 @@
-import React from "react";
+import React, {useState} from "react";
 import "./style.css";
 import { Helmet, HelmetProvider } from "react-helmet-async";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row, Col, Button } from "react-bootstrap";
 import { dataportfolio, meta } from "../../content_option";
+import { Modal } from "../../components/modal";
 import Typewriter from "typewriter-effect";
 
-export const Portfolio = () => {
+export const Portfolio = (props) => {
+  const [selectedKey, setselectedKey] = useState(0);
+  const [modalOpen, setModalOpen] = useState(false);
+
+  const openModal = (selectedKey) => {
+    setselectedKey(selectedKey);
+    setModalOpen(true);
+  };
+  const closeModal = () => {
+    setModalOpen(false);
+  };
   return (
     <HelmetProvider>
       <Container className="About-header">
@@ -16,7 +27,7 @@ export const Portfolio = () => {
         </Helmet>
         <Row className="mb-5 mt-5">
           <Col lg="8">
-            <h1 className="display-4 mb-4"> 
+            <h1 className="display-4 mb-4 title"> 
               <Typewriter
                     options={{
                       strings: [
@@ -35,15 +46,26 @@ export const Portfolio = () => {
           {dataportfolio.map((data, i) => {
             return (
               <div key={i} className="po_item">
-                <img src={data.img} alt="" />
+                <img src={data.main_img} alt="" />
                 <div className="content">
                   <p>{data.desctiption}</p>
-                  <a href={data.link}>view project</a>
+                  <Button onClick={()=> openModal(i)} >view project </Button>
                 </div>
               </div>
             );
           })}
         </div>
+
+        <Modal open={modalOpen} close={closeModal} header="Modal heading">
+          <main> 
+            <p>{dataportfolio[selectedKey].content}</p>
+            {/* {dataportfolio[selectedKey].content_img.map((data, i) => (
+            <div key={i}>
+              <img src={data} alt="" />
+              </div>
+            ))}; */}
+          </main>
+        </Modal>
       </Container>
     </HelmetProvider>
   );

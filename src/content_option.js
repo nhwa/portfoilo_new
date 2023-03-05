@@ -10,66 +10,22 @@ const dataabout = {
 };
 
 const dataportfolio = [{
-    img: "https://picsum.photos/400/?grayscale",
+    main_img: "https://picsum.photos/400/?grayscale",
     desctiption: "The wisdom of life consists in the elimination of non-essentials.",
-    link: "#",
+    content_img: "",
+    content: "hi~",
 },
 {
-    img: "https://picsum.photos/400/800/?grayscale",
+    main_img: "https://picsum.photos/400/800/?grayscale",
     desctiption: "The wisdom of life consists in the elimination of non-essentials.",
-    link: "#",
-},
-{
-    img: "https://picsum.photos/400/?grayscale",
-    desctiption: "The wisdom of life consists in the elimination of non-essentials.",
-    link: "#",
-},
-{
-    img: "https://picsum.photos/400/600/?grayscale",
-    desctiption: "The wisdom of life consists in the elimination of non-essentials.",
-    link: "#",
-},
-{
-    img: "https://picsum.photos/400/300/?grayscale",
-    desctiption: "The wisdom of life consists in the elimination of non-essentials.",
-    link: "#",
-},
-{
-    img: "https://picsum.photos/400/700/?grayscale",
-    desctiption: "The wisdom of life consists in the elimination of non-essentials.",
-    link: "#",
-},
-
-{
-    img: "https://picsum.photos/400/600/?grayscale",
-    desctiption: "The wisdom of life consists in the elimination of non-essentials.",
-    link: "#",
-},
-{
-    img: "https://picsum.photos/400/300/?grayscale",
-    desctiption: "The wisdom of life consists in the elimination of non-essentials.",
-    link: "#",
-},
-{
-    img: "https://picsum.photos/400/?grayscale",
-    desctiption: "The wisdom of life consists in the elimination of non-essentials.",
-    link: "#",
-},
-{
-    img: "https://picsum.photos/400/550/?grayscale",
-    desctiption: "The wisdom of life consists in the elimination of non-essentials.",
-    link: "#",
-},
-{
-    img: "https://picsum.photos/400/?grayscale",
-    desctiption: "The wisdom of life consists in the elimination of non-essentials.",
-    link: "#",
-},
-{
-    img: "https://picsum.photos/400/700/?grayscale",
-    desctiption: "The wisdom of life consists in the elimination of non-essentials.",
-    link: "#",
-},
+    content_img: [
+        "https://picsum.photos/400/?grayscale",
+        "https://picsum.photos/400/?grayscale",
+        "https://picsum.photos/400/?grayscale" 
+    ],
+    content: "흑흑",
+    link: "",
+}
 ];
 
 
@@ -81,7 +37,7 @@ const introdata = {
         third: "I develop mobile apps",
     },
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at nisl euismod urna bibendum",
-    your_img_url: "https://images.unsplash.com/photo-1514790193030-c89d266d5a9d",
+    your_main_img_url: "https://images.unsplash.com/photo-1514790193030-c89d266d5a9d",
 };
 
 const socialprofils = {

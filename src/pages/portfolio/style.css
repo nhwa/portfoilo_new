@@ -1,3 +1,6 @@
+.title{
+    color: var(--secondary-color);
+}
 .po_items_ho {
     column-width: 15em;
     -moz-column-width: 15em;
