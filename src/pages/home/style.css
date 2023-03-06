@@ -12,6 +12,9 @@ body {
     /* background: linear-gradient(135deg, #c1d7ff, #f9d0d3);  */
     /* background: linear-gradient(135deg, #CCDCDA, #dce0e0); */
 }
+body::-webkit-scrollbar {
+    display: none;
+}
 
 /* .scene {
     position: absolute; 

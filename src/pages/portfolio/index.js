@@ -14,6 +14,7 @@ export const Portfolio = (props) => {
     setselectedKey(selectedKey);
     setModalOpen(true);
   };
+
   const closeModal = () => {
     setModalOpen(false);
   };
@@ -46,24 +47,27 @@ export const Portfolio = (props) => {
           {dataportfolio.map((data, i) => {
             return (
               <div key={i} className="po_item">
-                <img src={data.main_img} alt="" />
-                <div className="content">
-                  <p>{data.desctiption}</p>
-                  <Button onClick={()=> openModal(i)} >view project </Button>
+              <img src={process.env.PUBLIC_URL + '/imgs/contents/dreamers/'+ data.main_img +'.png' } alt={data.alt} />
+                <div className="content" onClick={()=> openModal(i)}>
+                  <p>" {data.name} "</p>
                 </div>
               </div>
             );
           })}
         </div>
 
-        <Modal open={modalOpen} close={closeModal} header="Modal heading">
+        <Modal open={modalOpen} close={closeModal}>
           <main> 
             <p>{dataportfolio[selectedKey].content}</p>
-            {/* {dataportfolio[selectedKey].content_img.map((data, i) => (
-            <div key={i}>
-              <img src={data} alt="" />
+            {
+            dataportfolio[selectedKey].content_img.map( data => {
+              return(
+                <div className="content_img">
+                  <img src={process.env.PUBLIC_URL + '/imgs/contents/dreamers/'+ data.src+'.png' } alt={data.alt} />
               </div>
-            ))}; */}
+            )
+            })
+          }
           </main>
         </Modal>
       </Container>
