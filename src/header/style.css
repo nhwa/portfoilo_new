@@ -61,7 +61,7 @@
 .br-right,
 .br-left {
     position: fixed;
-    z-index: 9998;
+    z-index: 1500;
     border: 2.5px solid var(--secondary-color);
     background: var(--primary-color);
 }
