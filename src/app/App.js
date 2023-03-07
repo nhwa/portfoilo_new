@@ -23,14 +23,20 @@ export default function App() {
   return (
     <Router basename={process.env.PUBLIC_URL}>
       <div className="cursor__dot">
-        <AnimatedCursor
-          innerSize={20}
-          outerSize={70}
-          color="transperent"
-          outerAlpha={0.4}
-          innerScale={0.7}
-          outerScale={2}
-        />
+       <AnimatedCursor
+        innerSize={8}
+        outerSize={35}
+        innerScale={1}
+        outerScale={1.7}
+        outerAlpha={0}
+        hasBlendMode={true}
+        outerStyle={{
+          border: '3px solid var(--cursor-color)'
+        }}
+        innerStyle={{
+          backgroundColor: 'var(--cursor-color)'
+        }}
+      />
       </div>
       <ScrollToTop>
         <Headermain />
