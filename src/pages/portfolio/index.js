@@ -7,7 +7,7 @@ import { Modal } from "../../components/modal";
 import Typewriter from "typewriter-effect";
 
 export const Portfolio = (props) => {
-  const [selectedKey, setselectedKey] = useState(0);
+  const [selectedKey, setselectedKey] = useState(null);
   const [modalOpen, setModalOpen] = useState(false);
 
   const openModal = (selectedKey) => {
@@ -15,9 +15,8 @@ export const Portfolio = (props) => {
     setModalOpen(true);
   };
 
-  const closeModal = () => {
-    setModalOpen(false);
-  };
+  const closeModal = () => setModalOpen(false);
+
   return (
     <HelmetProvider>
       <Container className="About-header">
@@ -46,30 +45,56 @@ export const Portfolio = (props) => {
         <div className="mb-5 po_items_ho">
           {dataportfolio.map((data, i) => {
             return (
-              <div key={i} className="po_item">
-              <img src={process.env.PUBLIC_URL + '/imgs/contents/dreamers/'+ data.main_img +'.png' } alt={data.alt} />
-                <div className="content" onClick={()=> openModal(i)}>
-                  <p>" {data.name} "</p>
+              <div className="po_item"  onClick={()=> openModal(i)} >
+                  <img src={process.env.PUBLIC_URL + '/imgs/contents/'+ data.name+'/'+data.main_img } alt={data.alt} />
+                <div className="description" >
+                  <h3>{data.name}</h3>
+                  <h5>{data.project}</h5>
                 </div>
+            
               </div>
             );
           })}
         </div>
-
-        <Modal open={modalOpen} close={closeModal}>
-          <main> 
-            <p>{dataportfolio[selectedKey].content}</p>
-            {
-            dataportfolio[selectedKey].content_img.map( data => {
-              return(
-                <div className="content_img">
-                  <img src={process.env.PUBLIC_URL + '/imgs/contents/dreamers/'+ data.src+'.png' } alt={data.alt} />
-              </div>
-            )
-            })
-          }
-          </main>
-        </Modal>
+        {
+          selectedKey == null
+          ? null
+          : <Modal open={modalOpen} close={closeModal}>
+              <main> 
+                <div className="content">
+                  <div className="content_title">
+                    <h1>{dataportfolio[selectedKey].name}</h1>
+                    <span>{dataportfolio[selectedKey].content_description}</span>
+                  </div>
+                  <div className="content_info">
+                    <div className="content_icon">
+                        <img src={process.env.PUBLIC_URL + '/imgs/layout/web.png'} />
+                        <h2>{dataportfolio[selectedKey].project}</h2>
+                        <span>{dataportfolio[selectedKey].skills}</span>
+                    </div>
+                    <a className="content_mockup" href={dataportfolio[selectedKey].link}>
+                      <div>
+                        <img src={process.env.PUBLIC_URL + '/imgs/contents/' + dataportfolio[selectedKey].name+'/'+ dataportfolio[selectedKey].main_img} />
+                      </div>
+                      <img className="wrapper" src={process.env.PUBLIC_URL + '/imgs/layout/pc.png'} />
+                    </a>
+                  </div>
+                  {
+                    dataportfolio[selectedKey].content_img == null 
+                  ? null
+                  : <div className="content_img">
+                    { 
+                    dataportfolio[selectedKey].content_img.map( data => {
+                      return(
+                        <img src={process.env.PUBLIC_URL + '/imgs/contents/' + dataportfolio[selectedKey].name + '/'+ data.src } alt={data.alt} />
+                            )})
+                    }
+                  </div>
+                  }
+                </div>
+              </main>
+            </Modal>
+        }
       </Container>
     </HelmetProvider>
   );
