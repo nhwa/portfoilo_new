@@ -41,6 +41,14 @@
     border-style: solid;
     border-color: var(--secondary-color);
 }
+.navbar-brand img::after{
+    position: absolute; /* Positions psuedo element relative to .icon */
+    width: 100%; /* Same dimensions as .icon */
+    height: 100%;
+    content: ""; /* Allows psuedo element to show */
+    background: var(--secondary-color); /* The color you want the icon to change to */
+    mix-blend-mode: multiply;
+}
 .navbar-right{
     border-width: 0 0 2.5px 2.5px;
     border-style: solid;

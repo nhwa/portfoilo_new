@@ -2,12 +2,13 @@ import React, { useState } from "react";
 import "./style.css";
 import { VscGrabber, VscClose } from "react-icons/vsc";
 import { Link } from "react-router-dom";
-import { logotext ,socialprofils } from "../content_option";
+import { logotext ,hoverlogotext, socialprofils } from "../content_option";
 import Themetoggle from "../components/themetoggle";
 import { Icon } from '@iconify/react';
 
 const Headermain = () => {
   const [isActive, setActive] = useState("false");
+  const [isHovering, setIsHovering] = useState(0);
 
   const handleToggle = () => {
     setActive(!isActive);
@@ -19,7 +20,13 @@ const Headermain = () => {
       <header className="fixed-top site__header">
         <div className="d-flex justify-content-between">
           <Link className="d-flex align-items-center navbar-brand nav_ac" to="/">
-            <div>{logotext}</div>
+            <div onMouseEnter={() => setIsHovering(1)} onMouseLeave={() => setIsHovering(0)}>
+              {
+              isHovering
+              ? <div> {hoverlogotext}<img src={process.env.PUBLIC_URL + '/imgs/layout/flower.png' } alt="logo_icon" /></div>
+              : logotext
+              }
+            </div>
           </Link>
           <div className="d-flex navbar-right">
             <div className=" d-flex nav_ac align-items-center navbar-right"><Themetoggle /></div>
@@ -36,7 +43,7 @@ const Headermain = () => {
               <div className="menu__container p-3">
                 <ul className="the_menu">
                   <li className="menu_item ">
-                  <Link onClick={handleToggle} to="/" className="my-3">Home</Link>
+                  <Link onClick={handleToggle} to="/" className="my-3" >Home</Link>
                   </li>
                   <li className="menu_item">
                     <Link onClick={handleToggle} to="/portfolio" className="my-3"> Portfolio</Link>
