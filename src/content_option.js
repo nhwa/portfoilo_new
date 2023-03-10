@@ -71,7 +71,6 @@ const dataportfolio = [
     link: '',
     main_img: {src: "spark1.jpg", alt: "spark design awards"},
 },
-
 {   id: 6,
     icon: "web",
     mockup: 'web',
@@ -169,8 +168,8 @@ const dataportfolio = [
     project: "Web Project",
     skills: "HTML5, CSS, JavasCript",
     description: "바울랩ICT Subpage Publishing Project",
-    link: ["https://paullab.co.kr/referenceroom.html","https://paullab.co.kr/halloffame.html"],
-    main_img: [{src: "paullab1.png", alt: "paullab1"},{src: "paullab2.png", alt: "paullab2"}],
+    link: '',
+    main_img: [{src: "paullab1.png", alt: "paullab1", link: "https://paullab.co.kr/referenceroom.html"},{src: "paullab2.png", alt: "paullab2",link:"https://paullab.co.kr/halloffame.html"}],
 },
 {   id: 15,
     icon: "app",
