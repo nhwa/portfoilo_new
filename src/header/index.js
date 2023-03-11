@@ -23,7 +23,7 @@ const Headermain = () => {
             <div onMouseEnter={() => setIsHovering(1)} onMouseLeave={() => setIsHovering(0)}>
               {
               isHovering
-              ? <div> {hoverlogotext}<img src={process.env.PUBLIC_URL + '/imgs/layout/flower.png' } alt="logo_icon" /></div>
+              ? hoverlogotext
               : logotext
               }
             </div>
