@@ -12,6 +12,20 @@
     height: calc(2.5em + .75rem + 2px);
 }
 
+.ac_btn {
+    padding: 4px 19px;
+    color: var(--secondary-color);
+    position: relative;
+    border: var(--secondary-color) 2px solid;
+    overflow: hidden;
+    transition: all 0.6s cubic-bezier(0.55, 0, 0.1, 1);
+    cursor: pointer;
+    border-radius: 0;
+    margin-right: 20px;
+    margin-bottom: 5em;
+}
+
+
 button.btn.ac_btn:hover {
     color: var(--secondary-color);
 }
