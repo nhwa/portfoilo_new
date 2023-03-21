@@ -2,7 +2,7 @@ import React from 'react';
 import "./style.css";
 
 export const Modal = (props) => {
-  // 열기, 닫기, 모달 헤더 텍스트를 부모로부터 받아옴
+  // 열기, 닫기 텍스트를 부모로부터 받아옴
   const { open, close } = props;
 
   return (
@@ -10,7 +10,7 @@ export const Modal = (props) => {
     <div className={open ? 'modal_container' : 'modal_container out'}>
       <div className="modal_background" onClick={close}>
           <div class="modal">
-            <main>{props.children}</main>
+            <div>{props.children}</div>
           </div>
         </div>
     </div>

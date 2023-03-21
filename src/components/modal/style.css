@@ -11,13 +11,14 @@
 	transform: scale(0);
 	animation: unfoldIn 1s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
 }
+/* scrollbar custom*/
 .modal_container ::-webkit-scrollbar {
     width: 12px;
 }
 .modal_container ::-webkit-scrollbar-thumb {
     background-color: var(--secondary-color);
     background-clip: padding-box;
-    border: 2px solid transparent;
+    border: 3px solid transparent;
 }
 .modal_container ::-webkit-scrollbar-track {
     background-color: var(--primary-color);
@@ -40,12 +41,6 @@
     transform: scale(0);
 	/* 0.5 초 동안 애니메이션을 실행, 단 0.8초 지연시켜 0.8초 후에 애니메이션을 실행 */
 	animation: zoomIn .5s .8s  cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
-}
-.modal_container .modal_background .modal h2 {
-	font-size: 25px;
-	line-height: 25px;
-	margin-bottom: 15px;
-	
 }
 .modal_container .modal_background .modal p {
 	font-size: 18px;

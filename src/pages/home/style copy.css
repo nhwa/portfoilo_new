@@ -8,8 +8,8 @@
 }
 :root {
 	font-size: 18px;
-	--cardW: 16em;
-	--cardH: 22em;
+	--cardW: 14em;
+	--cardH: 20em;
 	--cardZInc: 2em;
 }
 body {
@@ -17,12 +17,87 @@ body {
     overflow-y: scroll;
 	overflow-x: hidden;
 }
+.holewrapper{
+  position: absolute; 
+  top: calc(50% - 10em);
+  left: calc(50% - 10em);
+  width: 20em;
+  height: 20em;
+  border: 4px dotted var(--secondary-color);
+  border-radius: 50%;
+  overflow: hidden;
+  transition: all 2s;
+}
+.holewrapper:hover{
+	transform: rotate(360deg);
+}
+.holewrapper.clicked:hover{
+	transform: none;
+  }
+.holewrapper.clicked{
+	animation-name: borderanimation;
+  	animation-duration: 1s;
+  	animation-fill-mode: forwards;
+}
+.relative{
+	position: relative;
+}
+@keyframes borderanimation {
+	from {
+		top: calc(50% - 10em);
+		left: calc(50% - 10em);
+		border-radius: 50%;
+		width: 20em;
+		height: 20em;
+	}
+	to {
+		border:1px solid var(--primary-color);
+		border-radius: 0%;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+	}
+}
+.holewrapper h1{
+	font-size: 100px;
+	position: fixed;
+	right: 200px;
+	top: 100px;
+	width: 80px;
+	color:var(--primary-color);
+}
+.holewrapper.clicked .main_section{
+	animation-name: masknone;
+  	animation-duration: 1s;
+  	animation-fill-mode: forwards;
+}
+@keyframes masknone {
+	0% {
+		mask: var(--mask-color);  
+		-webkit-mask: var(--mask-color);  
+	}
+	50% {mask: var(--maskhover-color);  
+		-webkit-mask: var(--maskhover-color); 
+	}
+	100% {
+		mask: none;
+		-webkit-mask: none;
+	}
+}
 .main_section {
 	display: block;
 	margin: auto;
 	position: relative;
 	height: calc(var(--cardH) * 25 - 1.5em);
 	transition: all 2s;
+    mask: var(--mask-color);  
+	-webkit-mask: var(--mask-color);  
+    -webkit-mask-repeat: no-repeat;
+}
+.nomask{
+    mask: none;
+    -webkit-mask: none;
 }
 /* Grid */
 .cards,
@@ -40,6 +115,9 @@ body {
 	transform: translateX(-50%) rotateX(45deg) rotateZ(45deg)
 		translateY(var(--scroll));
 	transform-origin: 50% 0;
+}
+.noclick{
+	pointer-events: none;
 }
 .stack {
 	display: block;
@@ -120,18 +198,18 @@ body {
 .card {
     background: var(--home-color);
     outline: 1px solid var(--secondary-color);
+	color: #000;
 	position: absolute;
 	transition: all 0.3s;
 	width: 100%;
 	height: 100%;
 }
 .stack:hover .card{ 
-    /* background:  */
-	background: var(--home-color);
+    background: none;
 	padding: 0.5em;
 }
 .stack:hover .card:first-child{
-    background: var(--mask-color);
+    background: var(--home-color);
 }
 .stack:hover .item_img{
     opacity: 0; 

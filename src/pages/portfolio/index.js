@@ -1,23 +1,27 @@
-import React, {useState} from "react";
 import "./style.css";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import { Container, Row, Col, Button  } from "react-bootstrap";
 import { dataportfolio, meta } from "../../content_option";
+import React,{ useEffect, useRef, useState } from "react";
 import { Modal } from "../../components/modal";
 import Typewriter from "typewriter-effect";
+import { useLocation } from "react-router-dom";
 
-export const Portfolio = (props) => {
+export const Portfolio = () => {
   const [selectedKey, setselectedKey] = useState(null);
   const [modalOpen, setModalOpen] = useState(false);
-  const [scrollbarNone, setScrollbarNone] = useState(false);
+
 
   const openModal = (selectedKey) => {
     setselectedKey(selectedKey);
     setModalOpen(true);
-    setScrollbarNone(true);
+    document.body.style.overflow = "hidden";
   };
   const selecteditem = dataportfolio.find(data => data.id === selectedKey);
-  const closeModal = () => setModalOpen(false);
+  const closeModal = () => {
+    document.body.style.overflow = "auto";
+    setModalOpen(false);
+  }
 
   return (
     <HelmetProvider>
@@ -47,7 +51,7 @@ export const Portfolio = (props) => {
         <div className="mb-5 po_items_ho">
           {dataportfolio.map(data => {
             return (
-              <div key={data.id} className="po_item"  onClick={()=> openModal(data.id)} >
+              <div key={data.id} className="po_item" onClick={()=> openModal(data.id)} >
                {data.main_img.length >=2 
                 ? data.main_img.map(list => { 
                   return(
@@ -72,7 +76,6 @@ export const Portfolio = (props) => {
                     <span key={selectedKey.id} >{selecteditem.description}</span>
                   </div>
                   <div className= "content_info">
-                    {/* content_icon */}
                     <div className="content_icon">
                       {(() => {
                         switch(selecteditem.icon) {
@@ -88,7 +91,7 @@ export const Portfolio = (props) => {
                             return <img src={process.env.PUBLIC_URL + '/imgs/layout/design_icon.png'} alt="design_icon" />
                         }
                       })()}
-                      <h2 key={selectedKey.id}>{selecteditem.project}</h2>
+                      <h2 key={selectedKey.id}>{selecteditem.work} Project</h2>
                       <span key={selectedKey.id}>{selecteditem.skills}</span>
                     </div>
                     {(() => {
@@ -96,15 +99,15 @@ export const Portfolio = (props) => {
                           case 'web' :
                             return <a key={selectedKey.id} className= "content_mockup web" href={selecteditem.link}><div>
                             <img key={selectedKey.id} src={process.env.PUBLIC_URL + '/imgs/contents/' + selecteditem.dir + '/'+ selecteditem.main_img.src} alt="selecteditem.main_img.alt" />
-                          </div><img className="wrapper" src={process.env.PUBLIC_URL + '/imgs/layout/web_wrapper1.png'} alt="" /></a>
+                          </div><img className="wrapper" src={process.env.PUBLIC_URL + '/imgs/layout/web_wrapper.png'} alt="web_wrapper" /></a>
                           case 'app' :
                             return <a key={selectedKey.id} className= "content_mockup app" href={selecteditem.link}><div>
-                            <img  src={process.env.PUBLIC_URL + '/imgs/contents/' + selecteditem.dir + '/'+ selecteditem.main_img.src} alt="selecteditem.main_img.alt"/>
-                          </div><img className="wrapper" src={process.env.PUBLIC_URL + '/imgs/layout/app_wrapper2.png'} alt=""/></a>
+                            <img src={process.env.PUBLIC_URL + '/imgs/contents/' + selecteditem.dir + '/'+ selecteditem.main_img.src} alt="selecteditem.main_img.alt"/>
+                          </div><img className="wrapper" src={process.env.PUBLIC_URL + '/imgs/layout/app_wrapper.png'} alt="app_wrapper"/></a>
                           case 'book' :
                             return <a key={selectedKey.id} className= "content_mockup book" href={selecteditem.link}><div>
                             <img src={process.env.PUBLIC_URL + '/imgs/contents/' + selecteditem.dir + '/'+ selecteditem.main_img.src} alt="selecteditem.main_img.alt"/>
-                          </div><img className="wrapper" src={process.env.PUBLIC_URL + '/imgs/layout/book_wrapper1.png'} alt=""/></a>
+                          </div></a>
                           default :
                           //list
                           return <div className="setrow">
